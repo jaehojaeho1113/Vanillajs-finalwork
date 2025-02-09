@@ -1,0 +1,273 @@
+*데이터 타입의 종류
+
+1. Number
+1) 정수(Integer) // 1, 2, 3, 4 ...
+2) 소수(Float) // 1.555, 2.545345 ...
+* Number타입은 서로 연산기호를 이용하여 계산할 수 있다.
+
+2. String
+: 처음부터 끝까지 문자(Text)로 구성되어 있다는 의미
+
+"Hello," + " My name is Nico" // Hello, My name is Nico
+* String타입은 ""을 이용하여 입력하고 String타입의 합은 두개를 합
+쳐서 출력한다.
+
+3.boolean
+
+true, false 가 있다.
+
+cf. null 은 변수에 null값이 할당됨. 
+undefined는 변수는 선언했으나 값을 할당하지 않음.
+
+4. arrary (배열)
+
+선언: const 배열명=[ ];
+배열명[index 0부터]; 로 특정 순서의 값을 지정할 수 있음.
+배열에 값 추가하는 법 --> 배열명.push(값);
+이렇게 값 추가 및 변경가능 --> 배열명[index] = 값;
+
+5.object (객체) : 특성을 가진 데이터를 저장해주며, { }를 사용한다.
+ex)
+const player={
+	name:"jaeho",
+	age:22,
+	color:true,
+}
+이런 형식이며
+특성을 따로 불러올수 있음. ********구조 잘 이해하기******
+1.console.log(player.name);
+2.console.log(player["name"])
+
+또한 특성을 따로 변경할 수있는데 객체 자체(통쨰로)를 변경하는건 불가능
+없는 특성을 추가할 수도 있다.
+
+6. function (함수)
+
+ex) function plus(x,y){
+	console.log(x+y)}
+형식이다. plus 함수명, 소괄호에는 parameter (매개변수 또는 인자).
+함수를 호출할때 plus(a,b) 형식인데 a와b는 argument(인수)이다
+
+함수를 통해 결과값을 받기 원할때는 return을 사용한다.
+(해당 함수의 결과값을 돌려주는것)
+한번 return하면 해당 함수는 끝난다. 
+
+6.5 **객체안에 함수 정의 할때 **
+
+ex) const player={
+name:"jaeho",
+sayhello:function(a){
+	console.log(a);
+},
+};
+
+형식이며 호출할땐 player.sayhello(a); 형식이다
+
+7. conditional (조건문)
+
+if(조건){
+ true일때 실행문
+}
+else{
+
+}
+
+else if도 사용가능.
+
+________________________________________________
+
+*변수 선언
+
+# const → 변수 선언(재선언금지, 재할당 금지) 보통은 이거씀.
+# let -> 변수선언(재선언금지, 재할당 가능) 재할당시 변수이름만 쓰고 할당하면됨,
+# var-> 옛날 변수선언 (재선언가능, 재할당가능) 근데 쓰지말자. 
+
+const a = 10;
+const b = 2;
+
+console.log(a + b);
+console.log(a * b);
+console.log(a / b);
+
+# 길이가 긴 변수를 선언할 때 → Camelcase
+
+ex. veryLongVariableName
+관습: string만 포함된 변수는 대문자로 쓴다(중요한 변수가 아니여서)
+
+cf. Python에서는 very_long_variable_name
+
+#주석처리 
+한줄 주석치리 //
+전체 주석치 /* 내용 */
+
+AND= && 이고
+OR = || 이다.
+not = !== 이다.
+같다는 ===이다.
+(cf. ==은 값만을 비교하고 ===은 데이터타입까지 비교하여 ===를 주로 사용한다.
+ex) 0==false -> true [동등연산자]
+     0 ===false ->false [일치연산자])
+
+_________________________________________________
+
+prompt( ); 는 사용자에게 창을 띄워 값을 받는 함수. (근데 오래된 방법이여서 별로임 css도 못함)
+	-> 여기서 받는 값은 string 으로 변환됨. 
+
+typeof 로 데이터 타입을 알 수 있음.
+
+parseInt( );로 데이터를 정수로 변환 가능하다.
+
+isNaN( ); 숫자가 아닌자 판별하는 함수. 숫자가 아니면 true, 숫자는 false
+
+JS에서 HTML 호출 및 변경가능.
+ex) console에서 document 호출해보면 document.title이 html에서 정의한 title과 동일하다.
+
+console.log() 는 객체의 요소를 파악,
+console.dir() 는 객체의 속성을 파악하는 것.
+
+_______________중요__________________________
+
+document 객체는 html에서 가져온거임.
+window와 document의 body,head,title 이런 것들은 중요하기때문에 기본적으로 호출가능.
+나머지 요소들은 불러와야함. (아래방식(?))
+
+document.getElementBy~ 함수로 html에서 id를 통해 요소를 찾아준다.
+(classname 이나 tagname도 가능한데 얘네는 배열로 반환한다.)
+찾는 값들은 " "로 묶어줘야함.
+***querySelector 를 통해 CSS 선택자방식으로 검색할 수 있다. ex) .h1:first-child
+단, 하나의 element를 반환해준다.
+여러개라면 처음의 것을 가져옴.
+여러개를 가져오고 싶다면 querySelectorAll을 통해 배열로 가져올 수 있다.
+
+요소를 찾고나면 JS에서 변경가능. ex) 요소.innerText="변경";
+
+------------------------JS 이벤트 설정하기-------------
+console.dir의 요소중에서 on이 붙은 것들이 event임.
+*** eventListener: JS에게 무슨 event를 listen하고 싶은지 알려줘야함. ***
+ex) title.addEventListener("click",실행할 함수 이름) 
+***함수명만 써줘야함 ( )는 쓰지 않기!! -> 이벤트가 발생하면 JS가 실행시키는 것이기 때문!
+
+listen하고 싶은 event 찾는방법
+1. 구글에 element 이름 검색 ex) h1 html element mdn
+2. 그중에 web APIs가 포함된 페이지 찾기.
+혹은 console.dir()을 통해서 on이 앞에 있는 event 찾기
+
+---------------CSS와 JS----------------------------
+1) HTML파일은 CSS문서와 JS문서를 임포트 하고있음.
+2) CSS에 .active라는 class를 생성해주고
+3) addEventListener로 h1을 클릭하면 handleTitleClick 함수가 작동
+4) handleTitleClick 함수는 h1의 class name을 "active" 로 바꿈
+5) .active의 color는 토마토색이기 때문에 토마토 색이 됨
+-> 근데 이렇게하면 기존에 h1에게 있던 클래스가 변경되는 결함이 있음
+
+classList 우리가 class들의 목록으로 작업할수 있게끔 허용해준다.
+contains은 우리가 명시한 class가 HTML element의 class에 포함되어 있는지 말해준다
+classlist.remove(), classlist.add()로 클래스를 제거 또는 추가할 수 있다.
+
+**** toggle은 토큰이 존재하면 토큰제거
+토큰존재 하지않으면 토큰 추가 ******
+
+ex) h1.classList.toggle("clicked")
+toggle은 h1의 classList에 clicked class가 이미있는지 확인하여
+만약있다면 toggle 이 clicked를 제거해준다
+만약 class name이 존재하지 않는다면 toggle은 classname 추가
+
+-----------------------------------------
+.length로 string의 길이를 알 수 있다.
+form 태그 안에 넣어야 input의 특성을 사용할 수 있으며 
+form 태그 안의 button의 기본값이 "submit"이다.
+
+function login(event){
+event.preventDefault(); //브라우저가 기본동작을 실행하지 못하게 막음. 
+기본적으로 event 객체가 가지고 있음. event 객체는 첫 arguemnt를 지칭하며 이 argument가 기본 정보들을 제공한다. argument는 자리만 만들고 써주면됨. (주로 event로 씀)
+}
+----> preventDefault()함수를 이용하여 브라우저의 기본 동작을 막을 수 있다. (argument의 함수중 하나)
+-------------------------------
+
+string과 변수를 더할때
+1) "hello " + username ; 
+2) `hello ${username}` ;
+되도록 2번 방법을 사용하도록 하자.
+-----------------------
+
+localStorage.setItem(key,value);
+- 로컬 저장소에 해당 키와 값을 저장함
+localStorage.getItem(key);
+- 로컬 저장소에 해당 키에 해당하는 값을 불러옴.
+localStorage.removeItem(key);
+- 로컬 저장소에 해당 키에 해당하는 값을 제거함.
+
+-------시간 설정----------
+interval= 매번 일어나야 하는 무언가
+setInterval(실행할 함수, 실행할 함수의 주기) 단위는 ms, ex 5000 => 5초 
+setTimeout(실행할 함수, 몇초뒤에 함수를 실행할지) 단위는 ms  
+
+a=new Date()로 객체 생성 후
+a.gethours() , getminutes(), getseconds() 등 사용가능하다.
+
+String() 을 통해 문자로 변환가능.
+
+.padStart( 문자길이, "대체값")
+.padEnd( 문자길이. "대체값")
+을 통해서 문자길이가 부족한 경우 대체값을 앞이나 뒤에 넣어서 문자길이를 채워준다.
+반드시 문자형식에 사용해야함.
+
+---------랜덤----------
+Math.random() 을 이용하여 0~1 사이의 무작위 수를 얻을 수 있다.
+여기에 수를 곱해서 사용하면 됨.
+
+Math.round 는 수를 반올림함
+Math.ceil은 올림을함
+Math,floor은 내림을 함.
+
+-----JS에서 Html요소를 생성--------
+createElement("")
+ex) document.createElement("img")
+인 경우 html 내에 img 태그 생성.
+(생성을 document로 하고 appendChild를 통해 넣어주고 싶은 태그 안에 넣어줄 수 있다)
+
+appendChild()를 통해 경로의 맨 마지막에 값을 추가한다.
+ex)document.body.appendChild("");
+prepend()를 통해 경로의 맨 앞에 값을 추가한다.
+
+JS에서 css 스타일 넣을때 속성값에는 " " 을 해야해!!!!!
+ex)document.body.style.background =`linear-gradient(${chosenColorFirst},${chosenColorSecond})`;
+}
+
+이모지 추가
+= 윈도우,+, . 동시에 누르기
+
+------------버튼 눌러서 요소 제거----------
+function(event)
+const li = event.target.parentElement; 
+=>>> 이벤트가 발생한 객체의 부모요소를 지정한다.
+그후 li.removed()를 통해 제거 가능.
+event.target 대신에 this 를 이용하여 사용 가능하다.
+
+---------------------------------------------
+localStorage에는 문자열 형식으로만 저장된다.
+그러므로 배열이나 객체등 을 저장하려면 문자열로 만들어 저장해야함.
+json.stringify 함수를 통해 배열 자체를 문자열로 만들어 localStorage에 저장하고
+json.parse 함수를 통해 문자열을 배열로 만들어서 불러온다.
+
+
+ex) array.forEach((item) => console.log(item));
+처럼 배열의 요소를 각각 받아서 사용가능. 
+함수를 호출하면서 배열에 있는 각각의 요소에 접근한다.
+.id로 아이디 생성 가능.
+
+filter 사용. fillter를 통해 참인 요소만 남겨두고 거짓인 요소는 뺄 수 있다.
+ex) toDos = toDos.filter((toDo) => toDo.id !== li.id);
+filter를 쓴다고 새로 함수가 만들어지는게 아님. 그래서 다시 정의하거나 생성해야함.
+
+----사용자 위치를 통해 날씨 변환--------
+
+navigator.geolocation.getCurrentPosition(실행될때 함수, 안될때 함수);
+를 통해서 사용자 현위치를 얻을 수 있다.
+
+https://home.openweathermap.org 에서 API를 이용해
+현위치값을 날씨정보로 얻을 수 있다.
+
+fetch를 통해 url을 js에서 부른다.
+네트워크에서 확인가능.
+(추가 공부필요)
